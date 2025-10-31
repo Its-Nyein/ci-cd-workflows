@@ -7,12 +7,14 @@ jobs:
       - name: Build job welcome message
         run: echo "Hello, world! and Executing the build job"
   test-job:
+    needs: build-job
     runs-on: ubuntu-latest
     steps:
       - name: Test job welcome message
         run: echo "Hello, world! and Executing the test job"
 
   deploy-job:
+    needs: test-job
     runs-on: ubuntu-latest
     steps:
       - name: Deploy job welcome message
