@@ -1,14 +1,19 @@
 name: First Workflow
 on: push
 jobs:
+  build-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build job welcome message
+        run: echo "Hello, world! and Executing the build job"
   test-job:
     runs-on: ubuntu-latest
     steps:
       - name: Test job welcome message
         run: echo "Hello, world! and Executing the test job"
 
-      - name: Checkout repository
-        uses: actions/checkout@v5
-
-      - name: Read README.md file
-        run: cat README.md
+  deploy-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy job welcome message
+        run: echo "Hello, world! and Executing the deploy job"
